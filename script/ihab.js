@@ -840,7 +840,7 @@ $(document).ready(function() {
     setTimeout(function()
     {
         $('.lazyLoadPage').fadeOut(500);
-    },0);
+    },100);
 });
 
 //TESTING
@@ -1205,7 +1205,7 @@ function statistics()
             T1 = "<table align=\"center\"><tr><th>#</th><th>Post</th><th>Comments</th></tr>";
             var posts = statJSON.posts.length;
             for(var i = 0; i<posts;i++) {
-                T1+= "<tr><td>"+ (+i+1) +"</td><td>"+ statJSON.posts[i]['post'] +"</td><td>"+ statJSON.posts[i]['cmts'] +"</td></tr>";
+                T1+= "<tr><td>"+ (+i+1) +"</td><td>"+ statJSON.posts[i]['post'].substring(0, 30) +"</td><td>"+ statJSON.posts[i]['cmts'] +"</td></tr>";
                 //$("#TopTopics").append(+i+1 + " " + statJSON.posts[i]['post'] + " - " + statJSON.posts[i]['cmts'] + "<br>");
             }
             T1+= "</table>";
@@ -1221,7 +1221,7 @@ function statistics()
                 var date = Math.round((d-dt)/(1000*60*60*24));
                 //alert(date);
                 //alert(dt.getTime());
-                T1+= "<tr><td>"+ (+i+1) +"</td><td>"+ statJSON.recent[i]['post'] +"</td><td>"+ date +"</td></tr>";
+                T1+= "<tr><td>"+ (+i+1) +"</td><td>"+ statJSON.recent[i]['post'].substring(0, 30) +"</td><td>"+ date +"</td></tr>";
             }
             T1+= "</table>";
             $("#MostRecent").html(T1);
@@ -1252,7 +1252,7 @@ function checkAll()
 var interval4;
 function showTopicsAuto()
 {
-    interval4 = setInterval(function(){showTopics()}, 5000);
+    //interval4 = setInterval(function(){showTopics()}, 5000);
 }
 
 function showTopicsAutoStop()
@@ -1438,7 +1438,7 @@ function addComment(comment,pid,user) {
                     done("Comment Done");
                 }
                 else {
-                    alert(xmlhttp.responseText);
+                    //alert(xmlhttp.responseText);
                     document.getElementById("btAddTopic").className = "btn btn-danger";
                 }
             }

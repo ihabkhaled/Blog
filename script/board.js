@@ -264,7 +264,7 @@ $(document).on('click', '.editComment',function(){
 var diff,diff2;
 
 function refreshTopics() {
-    console.log("sent");
+    //console.log("sent");
     //$("#updateTopics").prop('disabled', true);
     //$(".updateTopics").attr("disabled","disabled");
 
